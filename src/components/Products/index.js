@@ -33,7 +33,6 @@ export default function ChargeSessionHomePage() {
     if(filter) {
        allProductsEndpoint += filter;
     }
-    console.log(allProductsEndpoint)
     try {
       const data = await axios.get(allProductsEndpoint);
       setTableData(data?.data?.data)
