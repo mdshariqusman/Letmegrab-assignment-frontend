@@ -1,11 +1,11 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #5D8736;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #5D8736;
     --foreground: #ededed;
   }
 }
@@ -14,6 +14,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  padding: 10px;
 }
 
 body {
@@ -39,4 +40,142 @@ a {
   html {
     color-scheme: dark;
   }
+}
+.select-picker-wrap, .select-picker-fin {
+  width: 100%;
+  margin-right: 20px;
+}
+.select-picker-wrap .select-picker__placeholder, .select-picker-fin .select-picker__placeholder {
+  font-size: 13px;
+  color: #000;
+}
+.select-picker-wrap .select-picker__indicator-separator, .select-picker-fin .select-picker__indicator-separator {
+  background-color: transparent;
+}
+.select-picker-wrap .select-picker__control, .select-picker-fin .select-picker__control {
+  border-color: transparent;
+  background-color: #e5f1f7;
+}
+.select-picker-wrap .select-picker__control .select-picker__control--is-disabled, .select-picker-fin .select-picker__control .select-picker__control--is-disabled {
+  background-color: #e0e0e0;
+}
+.select-picker-wrap .select-picker__placeholder, .select-picker-fin .select-picker__placeholder {
+  font-size: 13px;
+  color: #000;
+}
+.select-picker-wrap .select-picker__Svg, .select-picker-fin .select-picker__Svg {
+  fill: #007fad;
+}
+.select-picker-wrap .select-picker__indicatorContainer, .select-picker-fin .select-picker__indicatorContainer {
+  color: #007fad;
+}
+.select-picker-wrap .select-picker__menu-list, .select-picker-fin .select-picker__menu-list {
+  font-size: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 4px;
+}
+.select-picker-wrap .select-picker__single-value, .select-picker-fin .select-picker__single-value {
+  font-size: 13px;
+  color: #000;
+}
+.select-picker-wrap .select-picker__dropdown-indicator, .select-picker-fin .select-picker__dropdown-indicator {
+  color: #007fad;
+}
+.select-picker-wrap .select-picker__menu, .select-picker-fin .select-picker__menu {
+  background-color: #004766;
+  color: #fff;
+  z-index: 9;
+}
+.select-picker-wrap .select-picker__option--is-focused, .select-picker-fin .select-picker__option--is-focused {
+  color: #004766;
+}
+.select-picker-wrap .select-picker__option--is-selected, .select-picker-fin .select-picker__option--is-selected {
+  background-color: #e5f1f7;
+  color: #004766;
+}
+.select-picker-wrap .select-picker__option, .select-picker-fin .select-picker__option {
+  border-bottom: 1px solid white;
+  padding: 11px 5px;
+}
+.select-picker-wrap .select-picker__option:last-child, .select-picker-fin .select-picker__option:last-child {
+  border-bottom: none;
+}
+.select-picker-wrap .select-picker__menu-list, .select-picker-fin .select-picker__menu-list {
+  padding: 10px;
+}
+.select-picker-fin .select-picker__control {
+  background-color: #fff;
+}
+.select-picker-fin .select-picker__dropdown-indicator {
+  width: 50px;
+}
+.select-picker-fin :focus-visible {
+  outline: none !important;
+}
+.select-picker-fin .select-picker__value-container {
+  padding-left: 0px;
+}
+.select-picker-fin .select-picker__single-value {
+  font-size: 20px;
+  font-weight: 600;
+}
+.select-picker-fin .select-picker__indicator {
+  padding: 0px;
+}
+.select-picker-fin svg {
+  width: 30px;
+  height: 30px;
+}
+.select-picker-wrap-custom {
+  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+.select-picker-wrap-custom .select-picker__placeholder {
+  font-size: 13px;
+  color: #000;
+}
+.select-picker-wrap-custom .select-picker__indicator-separator {
+  background-color: transparent;
+}
+.select-picker-wrap-custom .select-picker__control {
+  border-color: transparent;
+  background-color: #e5f1f7;
+}
+.select-picker-wrap-custom .select-picker__placeholder {
+  font-size: 13px;
+  color: #89adbd;
+}
+.select-picker-wrap-custom .select-picker__Svg {
+  fill: #007fad;
+}
+.select-picker-wrap-custom .select-picker__indicatorContainer {
+  color: #007fad;
+}
+.select-picker-wrap-custom .select-picker__menu-list {
+  font-size: 12px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 4px;
+}
+.select-picker-wrap-custom .select-picker__single-value {
+  font-size: 13px;
+  color: #000;
+}
+.select-picker-wrap-custom .select-picker__dropdown-indicator {
+  color: #007fad;
+}
+.select-picker-wrap-custom .select-picker__menu {
+  background-color: #004766;
+  color: #fff;
+  z-index: 9;
+}
+.select-picker-wrap-custom .select-picker__option--is-focused {
+  color: #fff;
+  background-color: #004766;
+}
+.select-picker-wrap-custom .select-picker__option--is-selected {
+  background-color: #e5f1f7;
+  color: #004766;
 }
