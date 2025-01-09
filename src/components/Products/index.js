@@ -7,6 +7,7 @@ import PaginationComp from "./pagination";
 import Table from "./table";
 import axios from "axios";
 import CircularProgress from '@mui/material/CircularProgress';
+import {Button} from "@mui/material";
 
 const headingList = [
   { label: 'Product ID', key: 'product_id', span: 1 },
@@ -16,6 +17,7 @@ const headingList = [
   { label: 'Image', key: 'media_url', span: 1 },
   { label: 'Category', key: 'category', span: 1 },
   { label: 'Material', key: 'material', span: 1 },
+  { label: 'Action', key: 'action', span: 1 },
 ]
 
 export default function ChargeSessionHomePage() {
@@ -24,9 +26,10 @@ export default function ChargeSessionHomePage() {
   const [page, setPage] = useState(1);
   const [pagyData, setPagyData] = useState(null);
   const [filterData, setFilterData] = useState('');
+  const [delationMessage,setDeletionMessage ] = useState('');
   useEffect(() => {
     getProducts(page,filterData)
-  }, [page,filterData])
+  }, [page,filterData,delationMessage])
 
   const getProducts = async (currentPage,filter) => {
     let allProductsEndpoint = `https://letmegrab-backend.onrender.com/letmegrab/all_products?page=${currentPage}`;
@@ -53,11 +56,13 @@ export default function ChargeSessionHomePage() {
     setPage(1);
 }
   return (<Grid2 container columnSpacing={1} className={styles.container}>
-    <Box sx={{ width: "100%", mb: "30px" }}>
+    <Box sx={{ width: "100%", mb: "30px" ,display:'flex',justifyContent:'space-between',alignItems:'center'}}>
       <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#164E63' }}
       >
         All Products
       </Typography>
+      <Button href="/add"
+      sx={{ fontWeight: 'bold', color: '#164E63',fontSize:'20px'}}>Add Product</Button>
     </Box>
     <Grid2 item size={12} sx={{ margin: "0px 0px" }}
     >
@@ -65,6 +70,7 @@ export default function ChargeSessionHomePage() {
     </Grid2>
     <Grid2 container item size={12} sx={{ margin: "30px 0px" }}
     >
+      <Box>{delationMessage}</Box>
       {isLoading ?
         <Box sx={{ width: '100%', justifyContent: 'center', display: 'flex' }}>
           <CircularProgress sx={{ color: '#164E63' }} />
@@ -73,6 +79,7 @@ export default function ChargeSessionHomePage() {
         <Table
           headingList={headingList}
           tableData={tableData}
+          setDeletionMessage={setDeletionMessage}
         />
       }
     </Grid2>

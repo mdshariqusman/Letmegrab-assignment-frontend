@@ -3,10 +3,20 @@ import React, { useState, useEffect } from "react";
 import { Grid2, TableBody, Box } from "@mui/material";
 import { TableContainer, Table, TableCell, TableHead, TableRow } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import { useRouter } from "next/navigation";
+import {Button} from "@mui/material";
+import axios from "axios";
 
-export default function CustomTable({ headingList, tableData, sorting }) {
-
+export default function CustomTable({ headingList, tableData,setDeletionMessage }) {
+   const handleDelete = async (id) => {
+    let deleteProductsEndpoint = `https://letmegrab-backend.onrender.com/letmegrab/delete/${id}`;
+    try {
+      const data = await axios.delete(deleteProductsEndpoint);
+      setDeletionMessage(`Product with id: ${id} deleted successfully`);
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
     return (<Grid2 item size={12}>
         <Paper elevation={2} md={12} sx={{ borderRadius: '10px', overflow: 'hidden' }}>
             <TableContainer component={'paper'} >
@@ -46,6 +56,10 @@ export default function CustomTable({ headingList, tableData, sorting }) {
                                 </TableCell>
                                 <TableCell >
                                     {item?.material}
+                                </TableCell>
+                                <TableCell >
+                                   <Button href={`/edit?id=${item?.product_id}&sku=${item?.SKU}`}>Edit</Button>
+                                   <Button onClick={()=> handleDelete(item?.product_id)}>Delete Product</Button>
                                 </TableCell>
                             </TableRow>
                         })}
